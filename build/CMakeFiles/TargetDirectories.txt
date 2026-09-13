@@ -1,0 +1,3 @@
+C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/build/CMakeFiles/OhNoRetroUFO.dir
+C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/build/CMakeFiles/edit_cache.dir
+C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/build/CMakeFiles/rebuild_cache.dir
