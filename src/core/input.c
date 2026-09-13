@@ -1,16 +1,10 @@
-#include <SDL.h>
 #include "input.h"
+#include "raylib.h"
 
-static const Uint8* keys;
-
-void input_init() {
-    keys = SDL_GetKeyboardState(NULL);
+bool Input_ShouldQuit(void) {
+    return WindowShouldClose();
 }
 
-void input_update() {
-    SDL_PumpEvents();
+bool Input_IsKeyDown(int key) {
+    return IsKeyDown(key);
 }
-
-int input_left()  { return keys[SDL_SCANCODE_LEFT]; }
-int input_right() { return keys[SDL_SCANCODE_RIGHT]; }
-int input_fire()  { return keys[SDL_SCANCODE_SPACE]; }

@@ -1,8 +1,11 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <SDL.h>
+#include "raylib.h"
 
-SDL_Texture* load_texture(SDL_Renderer* renderer, const char* path);
+void Renderer_Init(int width, int height, const char *title);
+void Renderer_Begin(void);
+void Renderer_End(void);
+void Renderer_Shutdown(void);
 
 #endif

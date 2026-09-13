@@ -3,44 +3,57 @@ project(OhNoRetroUFO C)
 
 set(CMAKE_C_STANDARD 11)
 
-# Lua
+# -----------------------------
+# Raylib (MSYS2 package)
+# -----------------------------
+set(raylib_DIR "C:/msys64/mingw64/lib/cmake/raylib")
+find_package(raylib REQUIRED)
+
+# -----------------------------
+# Lua 5.5 (твоя локальная сборка)
+# -----------------------------
 set(LUA_ROOT "C:/Lua")
 set(LUA_INCLUDE_DIR "${LUA_ROOT}/include")
 set(LUA_LIBRARIES "${LUA_ROOT}/lib/liblua55.a")
+
 include_directories(${LUA_INCLUDE_DIR})
+include_directories(src/core)
+include_directories(src/logic)
+include_directories(src/lua)
 
-# SDL2
-set(SDL2_ROOT "C:/Users/kuzmi/OneDrive/Desktop/Crossplatform/SDL2/x86_64-w64-mingw32")
-set(SDL2_INCLUDE_DIR "${SDL2_ROOT}/include/SDL2")
-set(SDL2_LIB_DIR "${SDL2_ROOT}/lib")
-
-include_directories(${SDL2_INCLUDE_DIR})
-link_directories(${SDL2_LIB_DIR})
-
-
-# Project includes
-include_directories(src src/core src/logic)
-
-# Sources
+# -----------------------------
+# Project sources
+# -----------------------------
 file(GLOB CORE_SRC "src/core/*.c")
 file(GLOB LOGIC_SRC "src/logic/*.c")
 
 add_executable(OhNoRetroUFO
+    src/core/main.c
     ${CORE_SRC}
     ${LOGIC_SRC}
 )
 
+# -----------------------------
 # Linking
+# -----------------------------
 target_link_libraries(OhNoRetroUFO
-    SDL2main
-    SDL2
+    raylib
     ${LUA_LIBRARIES}
-    imm32
-    winmm
-    version
-    setupapi
-    user32
-    gdi32
-    advapi32
-    shell32
+)
+
+if (WIN32)
+    target_link_libraries(OhNoRetroUFO
+        opengl32
+        gdi32
+        winmm
+    )
+endif()
+
+# -----------------------------
+# Copy assets after build
+# -----------------------------
+add_custom_command(TARGET OhNoRetroUFO POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/assets"
+        "${CMAKE_BINARY_DIR}/assets"
 )

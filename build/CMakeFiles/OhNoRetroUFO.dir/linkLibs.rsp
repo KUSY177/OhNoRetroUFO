@@ -1,1 +1,1 @@
-  -L"C:/Users/kuzmi/OneDrive/Desktop/Crossplatform/SDL2/x86_64-w64-mingw32/lib"  -lSDL2main -lSDL2 C:/Lua/lib/liblua55.a -limm32 -lwinmm -lversion -lsetupapi -luser32 -lgdi32 -ladvapi32 -lshell32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ C:/msys64/mingw64/lib/libraylib.dll.a C:/Lua/lib/liblua55.a -lopengl32 -lgdi32 -lwinmm -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

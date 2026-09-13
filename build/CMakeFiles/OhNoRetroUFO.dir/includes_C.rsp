@@ -1,1 +1,1 @@
--IC:/Lua/include -I"C:/Users/kuzmi/OneDrive/Desktop/Crossplatform/SDL2/x86_64-w64-mingw32/include/SDL2" -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/logic
+-IC:/Lua/include -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/logic -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/lua

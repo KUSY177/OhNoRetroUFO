@@ -71,11 +71,26 @@ include CMakeFiles/OhNoRetroUFO.dir/flags.make
 CMakeFiles/OhNoRetroUFO.dir/codegen:
 .PHONY : CMakeFiles/OhNoRetroUFO.dir/codegen
 
+CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: CMakeFiles/OhNoRetroUFO.dir/flags.make
+CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
+CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core/main.c
+CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: CMakeFiles/OhNoRetroUFO.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj -MF CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.obj.d -o CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.obj -c C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\main.c
+
+CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.i"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\main.c > CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.i
+
+CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.s"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\main.c -o CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.s
+
 CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj: CMakeFiles/OhNoRetroUFO.dir/flags.make
 CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
 CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj: C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core/collision.c
 CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj: CMakeFiles/OhNoRetroUFO.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj"
 	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj -MF CMakeFiles\OhNoRetroUFO.dir\src\core\collision.c.obj.d -o CMakeFiles\OhNoRetroUFO.dir\src\core\collision.c.obj -c C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\collision.c
 
 CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.i: cmake_force
@@ -90,7 +105,7 @@ CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj: CMakeFiles/OhNoRetroUFO.dir
 CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
 CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj: C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core/entities.c
 CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj: CMakeFiles/OhNoRetroUFO.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj"
 	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj -MF CMakeFiles\OhNoRetroUFO.dir\src\core\entities.c.obj.d -o CMakeFiles\OhNoRetroUFO.dir\src\core\entities.c.obj -c C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\entities.c
 
 CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.i: cmake_force
@@ -105,7 +120,7 @@ CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj: CMakeFiles/OhNoRetroUFO.dir/fla
 CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
 CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj: C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core/game.c
 CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj: CMakeFiles/OhNoRetroUFO.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj"
 	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj -MF CMakeFiles\OhNoRetroUFO.dir\src\core\game.c.obj.d -o CMakeFiles\OhNoRetroUFO.dir\src\core\game.c.obj -c C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\game.c
 
 CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.i: cmake_force
@@ -120,7 +135,7 @@ CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj: CMakeFiles/OhNoRetroUFO.dir/fl
 CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
 CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj: C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core/input.c
 CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj: CMakeFiles/OhNoRetroUFO.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj"
 	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj -MF CMakeFiles\OhNoRetroUFO.dir\src\core\input.c.obj.d -o CMakeFiles\OhNoRetroUFO.dir\src\core\input.c.obj -c C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\input.c
 
 CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.i: cmake_force
@@ -135,7 +150,7 @@ CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj: CMakeFiles/OhNoRetroUFO.d
 CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
 CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj: C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core/lua_bridge.c
 CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj: CMakeFiles/OhNoRetroUFO.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj"
 	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj -MF CMakeFiles\OhNoRetroUFO.dir\src\core\lua_bridge.c.obj.d -o CMakeFiles\OhNoRetroUFO.dir\src\core\lua_bridge.c.obj -c C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\lua_bridge.c
 
 CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.i: cmake_force
@@ -145,21 +160,6 @@ CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.i: cmake_force
 CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.s"
 	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\lua_bridge.c -o CMakeFiles\OhNoRetroUFO.dir\src\core\lua_bridge.c.s
-
-CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: CMakeFiles/OhNoRetroUFO.dir/flags.make
-CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
-CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core/main.c
-CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj: CMakeFiles/OhNoRetroUFO.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj"
-	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj -MF CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.obj.d -o CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.obj -c C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\main.c
-
-CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.i"
-	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\main.c > CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.i
-
-CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.s"
-	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\src\core\main.c -o CMakeFiles\OhNoRetroUFO.dir\src\core\main.c.s
 
 CMakeFiles/OhNoRetroUFO.dir/src/core/renderer.c.obj: CMakeFiles/OhNoRetroUFO.dir/flags.make
 CMakeFiles/OhNoRetroUFO.dir/src/core/renderer.c.obj: CMakeFiles/OhNoRetroUFO.dir/includes_C.rsp
@@ -223,12 +223,12 @@ CMakeFiles/OhNoRetroUFO.dir/src/logic/lua_bindings.c.s: cmake_force
 
 # Object files for target OhNoRetroUFO
 OhNoRetroUFO_OBJECTS = \
+"CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj" \
-"CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/renderer.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/resources.c.obj" \
 "CMakeFiles/OhNoRetroUFO.dir/src/core/timer.c.obj" \
@@ -237,23 +237,25 @@ OhNoRetroUFO_OBJECTS = \
 # External object files for target OhNoRetroUFO
 OhNoRetroUFO_EXTERNAL_OBJECTS =
 
+OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/collision.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/entities.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/game.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/input.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/lua_bridge.c.obj
-OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/main.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/renderer.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/resources.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/core/timer.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/src/logic/lua_bindings.c.obj
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/build.make
+OhNoRetroUFO.exe: C:/msys64/mingw64/lib/libraylib.dll.a
 OhNoRetroUFO.exe: C:/Lua/lib/liblua55.a
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/linkLibs.rsp
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/objects1.rsp
 OhNoRetroUFO.exe: CMakeFiles/OhNoRetroUFO.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\kuzmi\OneDrive\Desktop\OhNoRetroUFO\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable OhNoRetroUFO.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\OhNoRetroUFO.dir\link.txt --verbose=$(VERBOSE)
+	C:\msys64\mingw64\bin\cmake.exe -E copy_directory C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/assets C:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/build/assets
 
 # Rule to build all files generated by this target.
 CMakeFiles/OhNoRetroUFO.dir/build: OhNoRetroUFO.exe

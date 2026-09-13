@@ -1,12 +1,15 @@
 #ifndef RESOURCES_H
 #define RESOURCES_H
 
-#include <SDL.h>
+#include "raylib.h"
 
-void resources_init(SDL_Renderer* renderer);
-void resources_shutdown();
+// Глобальные текстуры
+extern Texture2D texPlayer;
+extern Texture2D texEnemy1;
+extern Texture2D texEnemy2;
+extern Texture2D texEnemy3;
 
-SDL_Texture* tex_player;
-SDL_Texture* tex_enemy;
+void Resources_Load(void);
+void Resources_Unload(void);
 
 #endif

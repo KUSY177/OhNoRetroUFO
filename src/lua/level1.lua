@@ -1,5 +1,3 @@
--- level1.lua
-
 local time_acc = 0
 local wave = 1
 
@@ -12,10 +10,11 @@ function update_wave(dt)
         spawn_enemy("basic", 300, 50)
         spawn_enemy("basic", 500, 50)
         wave = 2
+
     elseif wave == 2 and time_acc > 3.0 then
-        -- вторая волна: зигзаг
-        spawn_enemy("zigzag", 200, 30)
-        spawn_enemy("zigzag", 400, 30)
+        -- вторая волна: тяжёлые зигзаги
+        spawn_enemy("heavy", 200, 30)
+        spawn_enemy("heavy", 400, 30)
         wave = 3
     end
 end

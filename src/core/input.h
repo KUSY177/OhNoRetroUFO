@@ -1,11 +1,9 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-void input_init();
-void input_update();
+#include <stdbool.h>
 
-int input_left();
-int input_right();
-int input_fire();
+bool Input_ShouldQuit(void);
+bool Input_IsKeyDown(int key);
 
 #endif

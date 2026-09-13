@@ -1,6 +1,6 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-float timer_delta();
+float Timer_GetDelta(void);
 
 #endif

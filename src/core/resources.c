@@ -1,15 +1,20 @@
 #include "resources.h"
-#include "renderer.h"
 
-SDL_Texture* tex_player = NULL;
-SDL_Texture* tex_enemy  = NULL;
+Texture2D texPlayer;
+Texture2D texEnemy1;
+Texture2D texEnemy2;
+Texture2D texEnemy3;
 
-void resources_init(SDL_Renderer* renderer) {
-    tex_player = load_texture(renderer, "assets/sprites/player.bmp");
-    tex_enemy  = load_texture(renderer, "assets/sprites/enemy.bmp");
+void Resources_Load(void) {
+    texPlayer = LoadTexture("assets/sprites/player.png");
+    texEnemy1 = LoadTexture("assets/sprites/enemy1.png");
+    texEnemy2 = LoadTexture("assets/sprites/enemy2.png");
+    texEnemy3 = LoadTexture("assets/sprites/enemy3.png");
 }
 
-void resources_shutdown() {
-    // SDL_DestroyTexture(tex_player);
-    // SDL_DestroyTexture(tex_enemy);
+void Resources_Unload(void) {
+    UnloadTexture(texPlayer);
+    UnloadTexture(texEnemy1);
+    UnloadTexture(texEnemy2);
+    UnloadTexture(texEnemy3);
 }

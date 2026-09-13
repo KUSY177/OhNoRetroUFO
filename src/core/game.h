@@ -1,11 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SDL.h>
-
-void game_init(SDL_Renderer* renderer);
-void game_update(float dt);
-void game_render(SDL_Renderer* renderer);
-void game_shutdown();
+void Game_Init(void);
+void Game_Update(float dt);
+void Game_Draw(void);
+void Game_Shutdown(void);
 
 #endif

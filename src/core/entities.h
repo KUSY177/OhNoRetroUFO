@@ -1,29 +1,24 @@
 #ifndef ENTITIES_H
 #define ENTITIES_H
 
-#include <SDL.h>
-
 typedef struct {
     float x, y;
     float speed;
 } Player;
 
 typedef struct {
-    float x, y;
     int alive;
-    char type[16];
+    float x, y;
+    char type[32];
 } Enemy;
 
-// Глобальный массив врагов — нужен для тестов
+extern Player player;      // <--- ВАЖНО
 extern Enemy enemies[32];
 
-// API
-void entities_init();
+void entities_init(void);
 void entities_update(float dt);
-void entities_render(SDL_Renderer* renderer);
-void entities_shutdown();
-
-// Lua вызывает эту функцию
+void entities_render(void);
 void entities_spawn_enemy(const char* type, float x, float y);
+void entities_shutdown(void);
 
 #endif

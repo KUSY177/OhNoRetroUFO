@@ -1,10 +1,19 @@
 #include "renderer.h"
 
-SDL_Texture* load_texture(SDL_Renderer* renderer, const char* path) {
-    SDL_Surface* surf = SDL_LoadBMP(path);
-    if (!surf) return NULL;
+void Renderer_Init(int width, int height, const char *title) {
+    InitWindow(width, height, title);
+    SetTargetFPS(60);
+}
 
-    SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, surf);
-    SDL_FreeSurface(surf);
-    return tex;
+void Renderer_Begin(void) {
+    BeginDrawing();
+    ClearBackground(BLACK);
+}
+
+void Renderer_End(void) {
+    EndDrawing();
+}
+
+void Renderer_Shutdown(void) {
+    CloseWindow();
 }
