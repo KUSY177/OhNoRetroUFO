@@ -7,7 +7,7 @@ void Renderer_Init(int width, int height, const char *title) {
 
 void Renderer_Begin(void) {
     BeginDrawing();
-    ClearBackground(BLACK);
+    ClearBackground(BLUE); // очищает весь экран
 }
 
 void Renderer_End(void) {

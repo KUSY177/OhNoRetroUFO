@@ -3,7 +3,7 @@
 #include "raylib.h"
 
 int main(void) {
-    Renderer_Init(800, 600, "Oh No Retro UFO");
+    Renderer_Init(720, 720, "Oh No Retro UFO");
 
     Game_Init();
 

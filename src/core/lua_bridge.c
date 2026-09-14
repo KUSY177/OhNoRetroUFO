@@ -8,7 +8,7 @@ static lua_State* L = NULL;
 void lua_init() {
     L = luaL_newstate();
     luaL_openlibs(L);
-    luaL_dofile(L, "src/lua/level1.lua");
+    luaL_dofile(L, "assets/lua/level1.lua");
 }
 
 void lua_update(float dt) {

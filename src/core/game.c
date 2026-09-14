@@ -9,17 +9,14 @@ static float enemySpawnTimer = 0.0f;
 static lua_State* L = NULL;
 
 void Game_Init(void) {
-    entities_init();
+    InitAudioDevice();          // если используешь звуки
     Resources_Load();
+    entities_init();
 
-    // правильная инициализация Lua
-    L = lua_bind_init();
+    L = lua_bind_init();        // инициализация Lua (level1.lua, enemy_patterns.lua)
 }
 
 void Game_Update(float dt) {
-
-    // обновление игрока — теперь в entities_update()
-    // НЕ дублируем движение здесь
 
     // --- спавн врагов через таймер ---
     enemySpawnTimer += dt;
@@ -28,23 +25,19 @@ void Game_Update(float dt) {
         int r = GetRandomValue(0, 2);
 
         if (r == 0)
-            entities_spawn_enemy("basic", GetRandomValue(50, 750), 0);
+            entities_spawn_enemy("basic", GetRandomValue(50, 670), 0);
         else if (r == 1)
-            entities_spawn_enemy("fast", GetRandomValue(50, 750), 0);
+            entities_spawn_enemy("fast", GetRandomValue(50, 670), 0);
         else
-            entities_spawn_enemy("heavy", GetRandomValue(50, 750), 0);
+            entities_spawn_enemy("heavy", GetRandomValue(50, 670), 0);
 
         enemySpawnTimer = 0.0f;
     }
 
-    // --- обновление врагов через Lua ---
-    for (int i = 0; i < 32; i++) {
-        if (enemies[i].alive) {
-            lua_enemy_update(&enemies[i], dt);
-        }
-    }
+    // --- обновление волн из Lua (если используешь level1.lua) ---
+    lua_bind_update_wave(L, dt);
 
-    // --- обновление сущностей (игрок + враги) ---
+    // --- обновление всех сущностей (игрок, враги, пули, коллизии) ---
     entities_update(dt);
 
     // --- коллизии игрока с врагами ---
@@ -56,7 +49,7 @@ void Game_Update(float dt) {
         Rectangle eRect = { enemies[i].x, enemies[i].y, 32, 32 };
 
         if (CheckCollisionRecs(pRect, eRect)) {
-            // смерть игрока
+            // простая "смерть" игрока — ресет позиции
             player.x = 400;
             player.y = 550;
         }
@@ -64,17 +57,18 @@ void Game_Update(float dt) {
 }
 
 void Game_Draw(void) {
-    // фон
-    DrawRectangle(0, 0, 800, 600, DARKBLUE);
+
+    // фон уже очищен в main.c через ClearBackground(BLUE)
 
     // сущности
     entities_render();
 
     // HUD
-    DrawText("Sky Defender", 10, 10, 20, WHITE);
 }
 
 void Game_Shutdown(void) {
+    entities_shutdown();
     Resources_Unload();
     lua_bind_shutdown(L);
+    CloseAudioDevice();         // если включал звук
 }

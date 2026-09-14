@@ -36,6 +36,13 @@ lua_State* lua_bind_init() {
 
     register_api(L);
 
+    // ВАЖНО: грузим enemy_patterns.lua вручную
+    if (luaL_dofile(L, "assets/lua/enemy_patterns.lua") != LUA_OK) {
+        printf("Lua error: %s\n", lua_tostring(L, -1));
+        lua_pop(L, 1);
+    }
+
+    // затем level1.lua
     if (luaL_dofile(L, "assets/lua/level1.lua") != LUA_OK) {
         printf("Lua error: %s\n", lua_tostring(L, -1));
         lua_pop(L, 1);
@@ -74,6 +81,7 @@ void lua_enemy_update(Enemy* e, float dt) {
         return;
     }
 
+    // создаём таблицу e
     lua_newtable(L);
 
     lua_pushnumber(L, e->x);
@@ -85,18 +93,25 @@ void lua_enemy_update(Enemy* e, float dt) {
     lua_pushstring(L, e->type);
     lua_setfield(L, -2, "type");
 
+    lua_pushnumber(L, e->speed);
+    lua_setfield(L, -2, "speed");
+
+    // аргументы: (таблица e, dt)
     lua_pushnumber(L, dt);
 
+    // вызываем enemy_update(e, dt)
     if (lua_pcall(L, 2, 1, 0) != LUA_OK) {
         printf("Lua error: %s\n", lua_tostring(L, -1));
         lua_pop(L, 1);
         return;
     }
 
+    // читаем e.x
     lua_getfield(L, -1, "x");
     e->x = (float)lua_tonumber(L, -1);
     lua_pop(L, 1);
 
+    // читаем e.y
     lua_getfield(L, -1, "y");
     e->y = (float)lua_tonumber(L, -1);
     lua_pop(L, 1);

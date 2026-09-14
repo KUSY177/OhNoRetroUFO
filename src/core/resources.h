@@ -3,12 +3,25 @@
 
 #include "raylib.h"
 
-// Глобальные текстуры
+// --- Текстуры ---
 extern Texture2D texPlayer;
 extern Texture2D texEnemy1;
 extern Texture2D texEnemy2;
 extern Texture2D texEnemy3;
 
+extern Texture2D texBoom[5];
+extern Texture2D texHP;
+
+extern Texture2D texBG1;
+extern Texture2D texBG2;
+
+// --- Музыка ---
+extern Music musStart;
+extern Music musBattle;
+extern Music musLastHP;
+extern Music musGameOver;
+
+// --- Загрузка / выгрузка ---
 void Resources_Load(void);
 void Resources_Unload(void);
 
