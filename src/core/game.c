@@ -8,14 +8,21 @@
 static float enemySpawnTimer = 0.0f;
 static lua_State* L = NULL;
 
+// ------------------------------------------------------------
+// Инициализация игры
+// ------------------------------------------------------------
 void Game_Init(void) {
-    InitAudioDevice();          // если используешь звуки
-    Resources_Load();
-    entities_init();
 
-    L = lua_bind_init();        // инициализация Lua (level1.lua, enemy_patterns.lua)
+    InitAudioDevice();      // если используешь звук
+    resources_load();       // загрузка текстур
+    entities_init();        // инициализация сущностей
+
+    L = lua_bind_init();    // загрузка Lua (level1.lua, enemy_patterns.lua)
 }
 
+// ------------------------------------------------------------
+// Обновление игры
+// ------------------------------------------------------------
 void Game_Update(float dt) {
 
     // --- спавн врагов через таймер ---
@@ -34,10 +41,10 @@ void Game_Update(float dt) {
         enemySpawnTimer = 0.0f;
     }
 
-    // --- обновление волн из Lua (если используешь level1.lua) ---
+    // --- обновление волн из Lua ---
     lua_bind_update_wave(L, dt);
 
-    // --- обновление всех сущностей (игрок, враги, пули, коллизии) ---
+    // --- обновление сущностей ---
     entities_update(dt);
 
     // --- коллизии игрока с врагами ---
@@ -49,26 +56,34 @@ void Game_Update(float dt) {
         Rectangle eRect = { enemies[i].x, enemies[i].y, 32, 32 };
 
         if (CheckCollisionRecs(pRect, eRect)) {
-            // простая "смерть" игрока — ресет позиции
+            // простая смерть игрока — ресет позиции
             player.x = 400;
             player.y = 550;
         }
     }
 }
 
+// ------------------------------------------------------------
+// Рендер игры
+// ------------------------------------------------------------
 void Game_Draw(void) {
 
-    // фон уже очищен в main.c через ClearBackground(BLUE)
+    // фон очищается в main.c через ClearBackground()
 
-    // сущности
-    entities_render();
+    entities_render();  // рендер всех сущностей
 
-    // HUD
+    // HUD можно добавить здесь
 }
 
+// ------------------------------------------------------------
+// Завершение игры
+// ------------------------------------------------------------
 void Game_Shutdown(void) {
+
     entities_shutdown();
-    Resources_Unload();
+    resources_unload();
+
     lua_bind_shutdown(L);
-    CloseAudioDevice();         // если включал звук
+
+    CloseAudioDevice();     // если звук включён
 }

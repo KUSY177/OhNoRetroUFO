@@ -5,6 +5,9 @@
 #include <lauxlib.h>
 #include <lualib.h>
 
+#include <stdio.h>
+#include <string.h>
+
 static lua_State* L = NULL;
 
 // ------------------------------------------------------------
@@ -36,13 +39,13 @@ lua_State* lua_bind_init() {
 
     register_api(L);
 
-    // ВАЖНО: грузим enemy_patterns.lua вручную
+    // enemy_patterns.lua
     if (luaL_dofile(L, "assets/lua/enemy_patterns.lua") != LUA_OK) {
         printf("Lua error: %s\n", lua_tostring(L, -1));
         lua_pop(L, 1);
     }
 
-    // затем level1.lua
+    // level1.lua
     if (luaL_dofile(L, "assets/lua/level1.lua") != LUA_OK) {
         printf("Lua error: %s\n", lua_tostring(L, -1));
         lua_pop(L, 1);
@@ -99,21 +102,26 @@ void lua_enemy_update(Enemy* e, float dt) {
     // аргументы: (таблица e, dt)
     lua_pushnumber(L, dt);
 
-    // вызываем enemy_update(e, dt)
     if (lua_pcall(L, 2, 1, 0) != LUA_OK) {
         printf("Lua error: %s\n", lua_tostring(L, -1));
         lua_pop(L, 1);
         return;
     }
 
+    // проверяем, что вернулась таблица
+    if (!lua_istable(L, -1)) {
+        lua_pop(L, 1);
+        return;
+    }
+
     // читаем e.x
     lua_getfield(L, -1, "x");
-    e->x = (float)lua_tonumber(L, -1);
+    if (lua_isnumber(L, -1)) e->x = (float)lua_tonumber(L, -1);
     lua_pop(L, 1);
 
     // читаем e.y
     lua_getfield(L, -1, "y");
-    e->y = (float)lua_tonumber(L, -1);
+    if (lua_isnumber(L, -1)) e->y = (float)lua_tonumber(L, -1);
     lua_pop(L, 1);
 
     lua_pop(L, 1);

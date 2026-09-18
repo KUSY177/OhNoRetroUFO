@@ -1,8 +1,15 @@
 #ifndef LUA_BRIDGE_H
 #define LUA_BRIDGE_H
 
-void lua_init();
+#include <lua.h>
+
+// Инициализация Lua и загрузка level1.lua
+lua_State* lua_init(void);
+
+// Вызов update_wave(dt)
 void lua_update(float dt);
-void lua_shutdown();
+
+// Завершение Lua
+void lua_shutdown(void);
 
 #endif
