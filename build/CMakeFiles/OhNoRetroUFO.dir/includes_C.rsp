@@ -1,1 +1,1 @@
--IC:/Lua/include -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/core -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/logic -IC:/Users/kuzmi/OneDrive/Desktop/OhNoRetroUFO/src/lua
+-I"C:/Users/kuzmi/Downloads/OhNoRetroUFO/OhNoRetroUFO-main/src" -I"C:/Users/kuzmi/Downloads/OhNoRetroUFO/OhNoRetroUFO-main/src/core" -I"C:/Users/kuzmi/Downloads/OhNoRetroUFO/OhNoRetroUFO-main/src/logic" -IC:/lua/include
