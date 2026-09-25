@@ -16,84 +16,66 @@ include_directories(
 )
 
 # -----------------------------
-# RAYLIB (auto-install if missing)
+# Detect Web (Emscripten)
 # -----------------------------
-find_package(raylib QUIET)
+if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    message(STATUS "Building for Web (Emscripten)")
 
-if (NOT raylib_FOUND)
-    message(STATUS "Raylib not found — fetching automatically")
+    set(CMAKE_EXECUTABLE_SUFFIX ".html")
+
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
+        -s USE_GLFW=3 \
+        -s FULL_ES3=1 \
+        -s WASM=1 \
+        -s ALLOW_MEMORY_GROWTH=1 \
+        -s ASYNCIFY \
+        -s FORCE_FILESYSTEM=1 \
+        -O3")
 
     FetchContent_Declare(
-        raylib
+        raylib_web
         GIT_REPOSITORY https://github.com/raysan5/raylib.git
         GIT_TAG 5.0
     )
+    FetchContent_MakeAvailable(raylib_web)
 
-    FetchContent_MakeAvailable(raylib)
     set(RAYLIB_LIB raylib)
+    set(LUA_LIB "")
+
 else()
-    set(RAYLIB_LIB raylib)
-endif()
+    # -----------------------------
+    # Raylib (auto-fetch if missing)
+    # -----------------------------
+    find_package(raylib QUIET)
 
-# -----------------------------
-# LUA (your settings preserved)
-# -----------------------------
-if (WIN32)
-    include_directories("C:/lua/include")
-    link_directories("C:/lua/lib")
-    set(LUA_LIB lua)
-endif()
-
-if (UNIX)
-    find_package(Lua QUIET)
-
-    if (NOT LUA_FOUND)
-        message(STATUS "Lua not found — fetching automatically")
+    if (NOT raylib_FOUND)
+        message(STATUS "Raylib not found — fetching automatically")
 
         FetchContent_Declare(
-            lua54
-            URL https://www.lua.org/ftp/lua-5.4.6.tar.gz
+            raylib
+            GIT_REPOSITORY https://github.com/raysan5/raylib.git
+            GIT_TAG 5.0
         )
+        FetchContent_MakeAvailable(raylib)
+        set(RAYLIB_LIB raylib)
+    else()
+        set(RAYLIB_LIB raylib)
+    endif()
 
-        FetchContent_MakeAvailable(lua54)
-
-        add_library(lua STATIC
-            ${lua54_SOURCE_DIR}/src/lapi.c
-            ${lua54_SOURCE_DIR}/src/lcode.c
-            ${lua54_SOURCE_DIR}/src/lctype.c
-            ${lua54_SOURCE_DIR}/src/ldebug.c
-            ${lua54_SOURCE_DIR}/src/ldo.c
-            ${lua54_SOURCE_DIR}/src/ldump.c
-            ${lua54_SOURCE_DIR}/src/lfunc.c
-            ${lua54_SOURCE_DIR}/src/lgc.c
-            ${lua54_SOURCE_DIR}/src/llex.c
-            ${lua54_SOURCE_DIR}/src/lmem.c
-            ${lua54_SOURCE_DIR}/src/lobject.c
-            ${lua54_SOURCE_DIR}/src/lopcodes.c
-            ${lua54_SOURCE_DIR}/src/lparser.c
-            ${lua54_SOURCE_DIR}/src/lstate.c
-            ${lua54_SOURCE_DIR}/src/lstring.c
-            ${lua54_SOURCE_DIR}/src/ltable.c
-            ${lua54_SOURCE_DIR}/src/ltm.c
-            ${lua54_SOURCE_DIR}/src/lundump.c
-            ${lua54_SOURCE_DIR}/src/lvm.c
-            ${lua54_SOURCE_DIR}/src/lzio.c
-            ${lua54_SOURCE_DIR}/src/lauxlib.c
-            ${lua54_SOURCE_DIR}/src/lbaselib.c
-            ${lua54_SOURCE_DIR}/src/lcorolib.c
-            ${lua54_SOURCE_DIR}/src/ldblib.c
-            ${lua54_SOURCE_DIR}/src/lmathlib.c
-            ${lua54_SOURCE_DIR}/src/lstrlib.c
-            ${lua54_SOURCE_DIR}/src/ltablib.c
-            ${lua54_SOURCE_DIR}/src/lutf8lib.c
-            ${lua54_SOURCE_DIR}/src/loadlib.c
-            ${lua54_SOURCE_DIR}/src/loslib.c
-        )
-
+    # -----------------------------
+    # Lua from apk (Alpine)
+    # -----------------------------
+    if (WIN32)
+        include_directories("C:/lua/include")
+        link_directories("C:/lua/lib")
         set(LUA_LIB lua)
     else()
-        include_directories(${LUA_INCLUDE_DIR})
-        set(LUA_LIB ${LUA_LIBRARIES})
+        message(STATUS "Using system Lua 5.4 (apk)")
+
+        include_directories(/usr/include/lua5.4)
+
+        # Direct link to Alpine Lua
+        set(LUA_LIB /usr/lib/liblua-5.4.so.0)
     endif()
 endif()
 
@@ -115,26 +97,10 @@ target_link_libraries(OhNoRetroUFO
     ${LUA_LIB}
 )
 
-if (UNIX)
+if (UNIX AND NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     target_link_libraries(OhNoRetroUFO
         m pthread dl rt X11
     )
-endif()
-
-# -----------------------------
-# Copy DLLs (Windows only)
-# -----------------------------
-if (WIN32)
-    foreach(DLL raylib.dll libraylib.dll glfw3.dll lua.dll)
-        set(DLL_PATH "C:/msys64/mingw64/bin/${DLL}")
-        if (EXISTS ${DLL_PATH})
-            add_custom_command(TARGET OhNoRetroUFO POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy_if_different
-                    ${DLL_PATH}
-                    $<TARGET_FILE_DIR:OhNoRetroUFO>
-            )
-        endif()
-    endforeach()
 endif()
 
 # -----------------------------
@@ -146,3 +112,25 @@ add_custom_command(
         "${CMAKE_SOURCE_DIR}/assets"
         "${CMAKE_BINARY_DIR}/assets"
 )
+
+# -----------------------------
+# Copy raylib.dll on Windows
+# -----------------------------
+# -----------------------------
+# Copy DLLs from project folder (Windows)
+# -----------------------------
+if (WIN32)
+    add_custom_command(
+        TARGET OhNoRetroUFO POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_SOURCE_DIR}/glfw3.dll"
+            "${CMAKE_BINARY_DIR}/glfw3.dll"
+    )
+
+    add_custom_command(
+        TARGET OhNoRetroUFO POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_SOURCE_DIR}/libraylib.dll"
+            "${CMAKE_BINARY_DIR}/libraylib.dll"
+    )
+endif()

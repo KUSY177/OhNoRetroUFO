@@ -1,1 +1,1 @@
-  -LC:/lua/lib  -lraylib -llua -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+  -LC:/lua/lib  C:/msys64/mingw64/lib/libraylib.dll.a -llua -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
